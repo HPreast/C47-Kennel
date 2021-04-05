@@ -1,7 +1,8 @@
 import React from "react"
-import "./Animal.css"
+import "./Customers.css"
 
-export const AnimalCard = ({ animal }) => {
+export const CustomerCard = ({ customer }) => {
+    console.log(customer)
     return (
       <div className="card">
         <div className="card-content">
@@ -9,9 +10,9 @@ export const AnimalCard = ({ animal }) => {
             {/* <img src={require('./dog.svg')} alt="My Dog" /> */}
           </picture>
           <h3>Name: <span className="card-petname">
-            {animal.name}
+            {customer.name}
           </span></h3>
-          <p>Breed: {animal.breed}</p>
+          <p>Address: {customer.address}</p>
         </div>
       </div>
     );
