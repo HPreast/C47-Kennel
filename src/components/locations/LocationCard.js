@@ -1,7 +1,7 @@
 import React from 'react'
 import "./Locations.css"
 
-export const LocationCard = ({ location }) => {
+export const LocationCard = ({ location, handleDeleteLocation }) => {
     console.log(location)
     return (
       <div className="card">
@@ -13,6 +13,7 @@ export const LocationCard = ({ location }) => {
             {location.name}
           </span></h3>
           <p>Address: {location.address}</p>
+          <button type="button" onClick={() => handleDeleteLocation(location.id)}>Shut Down</button>
         </div>
       </div>
     );

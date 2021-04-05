@@ -1,7 +1,7 @@
 import React from "react"
 import "./Employees.css"
 
-export const EmployeeCard = ({ employee }) => {
+export const EmployeeCard = ({ employee, handleDeleteEmployee }) => {
     console.log(employee)
     return (
       <div className="card">
@@ -13,6 +13,7 @@ export const EmployeeCard = ({ employee }) => {
             {employee.name}
           </span></h3>
           <p>Location: {employee.location}</p>
+          <button type="button" onClick={() => handleDeleteEmployee(employee.id)}>Terminate</button>
         </div>
       </div>
     );
