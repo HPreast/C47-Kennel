@@ -13,6 +13,7 @@ export const CustomerCard = ({ customer }) => {
             {customer.name}
           </span></h3>
           <p>Address: {customer.address}</p>
+          <p>Phone Number: {customer.phoneNumber}</p>
         </div>
       </div>
     );
