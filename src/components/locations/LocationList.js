@@ -3,6 +3,11 @@ import { LocationCard } from "./LocationCard"
 import { getLocationById, getAllLocations } from "../../modules/LocationManager"
 
 export const LocationList = () => {
+    const handleDeleteLocation = (id) => {
+        delete(id)
+        .then(() => getAllLocations().then(setLocations));
+    };
+
     const [locations, setLocations] = useState([]);
 
     const getLoctions = () => {
@@ -16,7 +21,10 @@ export const LocationList = () => {
     return (
     <div className="container-cards">
         {locations.map(location => 
-        <LocationCard key={location.id} location={location} />
+        <LocationCard 
+        key={location.id} 
+        location={location} 
+        handleDeleteLocation={handleDeleteLocation} />
         )}
     </div>
     );
