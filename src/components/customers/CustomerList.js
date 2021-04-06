@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { CustomerCard } from "./CustomerCard"
-import { getAllCustomers } from "../../modules/CustomerManager"
+import { deleteCustomer, getAllCustomers } from "../../modules/CustomerManager"
 
 export const CustomerList = () => {
     const handleDeleteCustomer = (id) => {
-        delete(id)
+        deleteCustomer(id)
         .then(() => getAllCustomers().then(setCustomers));
     };
     const [customers, setCustomers] = useState([]);
