@@ -3,21 +3,21 @@ import { AnimalCard } from "./AnimalCard"
 import { getAllAnimals, deleteAnimal } from "../../modules/AnimalManager";
 
 export const AnimalList = () => {
-  //Implement deleteAnimal
-  const handleDeleteAnimal = (id) => {
-    delete(id)
-    .then(() => getAllAnimals().then(setAnimals));
-  };
-
+  
   //initial state is an empty array
   const [animals, setAnimals] = useState([]);
-
+  
   const getAnimals = () => {
-      //do something later
-      //after the data comes back from API, we use the setAnimals function to update the state
-      return getAllAnimals().then(animalsFromAPI => {
-        setAnimals(animalsFromAPI);
+    //do something later
+    //after the data comes back from API, we use the setAnimals function to update the state
+    return getAllAnimals().then(animalsFromAPI => {
+      setAnimals(animalsFromAPI);
     });
+  };
+  //Implement deleteAnimal
+  const handleDeleteAnimal = (id) => {
+    deleteAnimal(id)
+    .then(() => getAllAnimals().then(setAnimals));
   };
 //Got the animals from the API on components first render
   useEffect(() => {

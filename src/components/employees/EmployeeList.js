@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react"
 import { EmployeeCard } from "./EmployeeCard"
-import { getAllEmployees } from "../../modules/EmployeeManager"
+import { deleteEmployee, getAllEmployees } from "../../modules/EmployeeManager"
 
 export const EmployeeList = () => {
     const handleDeleteEmployee = (id) => {
-        delete(id)
+        deleteEmployee(id)
         .then(() => getAllEmployees().then(setEmployees));
     };
 
