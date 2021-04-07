@@ -1,7 +1,7 @@
 import { remoteURL } from "./AnimalManager"
 
 export const getLocationById = (locationId) => {
-    return fetch(`${remoteURL}/locations/${locationId}?_expand=animal&_expand=employee&_expand=owner`)
+    return fetch(`${remoteURL}/locations/${locationId}`)
     .then( response => response.json())
 }
 
