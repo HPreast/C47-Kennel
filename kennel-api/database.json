@@ -48,6 +48,11 @@
       "id": 1,
       "name": "Emma Beaton",
       "location": "Nashville Kennels North"
+    },
+    {
+      "name": "Kenny Smith",
+      "location": "Nashville Kennels East",
+      "id": 2
     }
   ],
   "locations": [
