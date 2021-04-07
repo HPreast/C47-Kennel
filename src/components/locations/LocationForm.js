@@ -24,9 +24,12 @@ export const LocationForm = () => {
 
     const handleClickSaveLocation = (event) => {
         event.preventDefault()
-
-        addLocation(location)
-        .then(() => history.push("/locations"))
+        if (location.name === "" || location.address === "") {
+            window.alert("Please fill out all fields.")
+        } else {
+            addLocation(location)
+            .then(() => history.push("/locations"))
+        }
     }
     return (
         <form className="locationForm">
