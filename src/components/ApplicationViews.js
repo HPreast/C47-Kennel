@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { Redirect, Route } from "react-router-dom"
 import { CustomerList } from "./customers/CustomerList"
 import { EmployeeList } from "./employees/EmployeeList"
@@ -13,9 +13,17 @@ import { LocationForm } from "./locations/LocationForm"
 import { CustomerForm } from "./customers/CustomerForm"
 import { EmployeeForm } from "./employees/EmployeeForm"
 import { AnimalEditForm } from "./animal/AnimalEditForm"
+import { Login } from "./auth/Login"
+import { Register } from "./auth/Register"
 
 
 export const ApplicationViews = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(sessionStorage.getItem("kennel_customer") !== null)
+
+  const setAuthUser = (user) => {
+    sessionStorage.setItem("kennel_customer", JSON.stringify(user))
+    setIsAuthenticated(sessionStorage.getItem("kennel_customer") !== null)
+  }
     return (
         <>
             {/* Render the location list when http://localhost:3000/ */}
@@ -25,9 +33,17 @@ export const ApplicationViews = () => {
             {/* Render the animal list when http://localhost:3000/animals */}
             
             <Route exact path="/animals">
-              <AnimalList />
+              {isAuthenticated ? <AnimalList /> : <Redirect to="/login" />} 
             </Route>
             
+            <Route path="/login">
+              <Login setAuthUser={setAuthUser} />
+            </Route>
+
+            <Route path="/register">
+              <Register setAuthUser={setAuthUser} />
+            </Route>
+
             <Route exact path="/animals/:animalId(\d+)">
               <AnimalDetail />
             </Route>

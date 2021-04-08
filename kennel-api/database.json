@@ -34,13 +34,20 @@
       "id": 1,
       "name": "Hannah Hall",
       "address": "7002 Chestnut Ct",
-      "phoneNumber": "615-222-1234"
+      "phoneNumber": "615-222-1234",
+      "email": "hannah@home.com"
     },
     {
+      "id": 2,
       "name": "Bobby Steele",
       "address": "634 Meadow Lane",
       "phoneNumber": "615-548-6548",
-      "id": 2
+      "email": "bobby@home.com"
+    },
+    {
+      "email": "hunter@me.com",
+      "name": "Hunter Preast",
+      "id": 3
     }
   ],
   "employees": [
