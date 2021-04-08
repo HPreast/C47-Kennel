@@ -57,7 +57,7 @@ export const ApplicationViews = () => {
             </Route>
 
             <Route exact path="/locations">
-              <LocationList />
+            {isAuthenticated ? <LocationList /> : <Redirect to="/login" />}
             </Route>
             
             <Route path="/locations/:locationId(\d+)">
@@ -69,7 +69,7 @@ export const ApplicationViews = () => {
             </Route>
             
             <Route exact path="/customers">
-              <CustomerList />
+            {isAuthenticated ? <CustomerList /> : <Redirect to="/login" />}
             </Route>
             
             <Route path="/customers/create">
@@ -77,7 +77,7 @@ export const ApplicationViews = () => {
             </Route>
             
             <Route exact path="/employees">
-              <EmployeeList />
+            {isAuthenticated ? <EmployeeList /> : <Redirect to="/login" />}
             </Route>
             
             <Route path="/employees/create">
