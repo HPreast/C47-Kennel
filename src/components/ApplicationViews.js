@@ -1,5 +1,5 @@
 import React from "react"
-import { Route } from "react-router-dom"
+import { Redirect, Route } from "react-router-dom"
 import { CustomerList } from "./customers/CustomerList"
 import { EmployeeList } from "./employees/EmployeeList"
 import { Home } from "./Home"
@@ -12,6 +12,7 @@ import { AnimalForm } from "./animal/AnimalForm"
 import { LocationForm } from "./locations/LocationForm"
 import { CustomerForm } from "./customers/CustomerForm"
 import { EmployeeForm } from "./employees/EmployeeForm"
+import { AnimalEditForm } from "./animal/AnimalEditForm"
 
 
 export const ApplicationViews = () => {
@@ -22,33 +23,47 @@ export const ApplicationViews = () => {
                 <Home />
             </Route>
             {/* Render the animal list when http://localhost:3000/animals */}
+            
             <Route exact path="/animals">
               <AnimalList />
             </Route>
-            <Route path="/animals/:animalId(\d+)">
+            
+            <Route exact path="/animals/:animalId(\d+)">
               <AnimalDetail />
             </Route>
+
             <Route path="/animals/create">
               <AnimalForm />
             </Route>
+
+            <Route path="/animals/edit/:animalId(\d+)">
+              <AnimalEditForm />
+            </Route>
+
             <Route exact path="/locations">
               <LocationList />
             </Route>
+            
             <Route path="/locations/:locationId(\d+)">
               <LocationDetail />
             </Route>
+            
             <Route path="/locations/create">
               <LocationForm />
             </Route>
+            
             <Route exact path="/customers">
               <CustomerList />
             </Route>
+            
             <Route path="/customers/create">
               <CustomerForm />
             </Route>
+            
             <Route exact path="/employees">
               <EmployeeList />
             </Route>
+            
             <Route path="/employees/create">
               <EmployeeForm />
             </Route>

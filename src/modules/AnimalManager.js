@@ -26,3 +26,13 @@ export const addAnimal = (newAnimal) => {
         body: JSON.stringify(newAnimal)
     }).then(response => response.json())
 }
+
+export const editAnimal = (editedAnimal) => {
+    return fetch(`${remoteURL}/animals/${editedAnimal.id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(editedAnimal)
+    }).then(response => response.json())
+}
