@@ -6,7 +6,9 @@ export const AnimalSpotlight = ({animalId}) => {
     const [animal, setAnimal] = useState({});
 
     useEffect(() => {
+       
         getAnimalById(animalId).then(animal => {
+           
             setAnimal(animal); 
         });
     }, [animalId]);

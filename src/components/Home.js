@@ -4,7 +4,7 @@ import { getRandomId } from "../modules/AnimalManager"
 import { PropsAndState } from "./PropsAndState";
 
 export const Home = () => {
-    const [spotlightId, setSpotlightId] = useState({});
+    const [spotlightId, setSpotlightId] = useState(0);
     const refreshSpotlightAnimal = () => {
         getRandomId().then(setSpotlightId);
     };
