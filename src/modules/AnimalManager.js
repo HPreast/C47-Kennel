@@ -36,3 +36,13 @@ export const editAnimal = (editedAnimal) => {
         body: JSON.stringify(editedAnimal)
     }).then(response => response.json())
 }
+
+export const getRandomId = () => {
+    return fetch(`${remoteURL}/animals`)
+    .then(response => response.json())
+    .then(animals => {
+        const randomIndex = Math.floor(Math.random() * animals.length);
+        const randomAnimal = animals[randomIndex];
+        return randomAnimal.id;
+    });
+}
