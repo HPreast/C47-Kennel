@@ -17,13 +17,7 @@ import { Login } from "./auth/Login"
 import { Register } from "./auth/Register"
 
 
-export const ApplicationViews = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(sessionStorage.getItem("kennel_customer") !== null)
-
-  const setAuthUser = (user) => {
-    sessionStorage.setItem("kennel_customer", JSON.stringify(user))
-    setIsAuthenticated(sessionStorage.getItem("kennel_customer") !== null)
-  }
+export const ApplicationViews = ({isAuthenticated, setAuthUser}) => {
     return (
         <>
             {/* Render the location list when http://localhost:3000/ */}
